@@ -1,20 +1,23 @@
 function snapCrackle (maxValue){
     let concatenar = ''
-    for(let i = 1; i < maxValue;i++){
+    for(let i = 1; i <= maxValue;i++){
         
-        if(i % 2 === 0) {
-            concatenar += i + ','
-        } if(i % 2 === 1){
-            concatenar +=  'Snap' + ' ,'
-        } if (i % 5 === 0){
-            concatenar +=  'Crackle' + ' ,'
-        } if(i % 2 === 1 && i % 5 === 0){
-            concatenar += 'Snap Crackle' + ','
+        if(i % 2 !== 0 && i % 5 === 0){
+            concatenar += 'Snap Crackle' + ', '
+        }  
+        else if(i % 2 !== 0){
+            concatenar += 'Snap' + ', '
+        } 
+        else if (i % 5 === 0){
+            concatenar += ' Crackle' + ', '
+        }
+        else{
+            concatenar +=  i +  ', '
         } 
     } return concatenar
 }
 
-snapCrackle(12)
+snapCrackle()
 
 
 
@@ -23,51 +26,46 @@ snapCrackle(12)
 
 
 
-
-// function verificandoNumerosPrimos (numeros){
-//     let guardarResultado = ""
-//     for(let i = 1; i < numeros; i++){
-//         if(i % 2 === 0){
-//             guardarResultado += 'Prime'
-//         } if (i % 3 === 0){
-//             guardarResultado += 'Prime'
-//         } if (i % 5 === 0){
-//             guardarResultado += 'Prime'
-//         } if(i % 7 === 0){
-//             guardarResultado += 'Prime'
-//         } if (i % 11 === 0){
-//             guardarResultado += 'Prime'
-//         }
-//     }
-//     return guardarResultado
-// }
-
-// verificandoNumerosPrimos
-
-
-
-
-
+function verificandoNumerosPrimos (numeros){
+    let contador = 0
+    let guardarResultados = 0
+    //numeros = 5
+    //escrever um for pra dividir os numeros por todos os numeros
+    //verificar se só existem duas divisões perfeitas 
+    //5 / 1 = 5, 5 / 2 = 2.5 , 5 / 3  = 1.7 , 5 / 4 = 1.2, 5 / 5 = 1
+    for(let i = 1; i <= numeros; i++){
+        if(numeros % i === 0){
+            contador += 1
+        } 
+    } 
+    if(contador <= 2){
+        guardarResultados += contador
+    }
+    return guardarResultados
+}
 
 
 
 
 function snapCracklePrime (maxValue){
     let concatenar = ''
-    for(let i = 1; i < maxValue;i++){
-        
-        if(i % 2 === 0) {
-            concatenar += i + ','
-        } if(i % 2 === 0 || i % 3 === 0 || i % 5 === 0 || i % 7 === 0 || i % 11 === 0){
-            concatenar += 'Prime'
-        } if(i % 2 === 1){
-            concatenar +=  'Snap' + ' ,'
-        } if (i % 5 === 0){
-            concatenar +=  'Crackle' + ' ,'
-        } if(i % 2 === 1 && i % 5 === 0){
-            concatenar += 'Snap Crackle' + ','
+    for(let i = 1; i <= maxValue;i++){
+        if(i % 2 !== 0 && i % 5 === 0){
+            concatenar += 'Snap Crackle' + ', '
+        }  
+        else if(i % 2 !== 0){
+            concatenar += 'Snap' + ', '
+        } 
+        else if (i % 5 === 0){
+            concatenar += ' Crackle' + ', '
+        }
+        else if(verificandoNumerosPrimos(i)){
+            concatenar += 'Prime' + ', '
+        }
+        else{
+            concatenar +=  i +  ', '
         } 
     } return concatenar
 }
 
-snapCracklePrime(15)
+snapCracklePrime()
