@@ -14,7 +14,7 @@ function snapCrackle (maxValue){
         else{
             concatenar +=  i +  ', '
         } 
-    } return concatenar
+    } return console.table(concatenar)
 }
 snapCrackle(12)
 
